@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <a class="right" href="/logout/">Welcome {{user.first_name}}, Logout ?</a>
+    <h3>Customer name : {{user.first_name}} </h3>
+    <h3>Order History : </h3>
+    <table style="width:100%" >
+	<tr>
+		<th>Order Time</th>
+		<th>Food Item</th>
+	    <th>Restaurant Name</th>
+	    <th>Status</th>
+	    <th>Quantity</th>
+	    <th>Price</th> 
+	    <th>Add review</th>
+	</tr>
+	{% for c in orders%}
+		<tr>
+			<td>{{c.order_timestamp}}</td>
+			<td>{{c.food}}</td>
+		    <td>{{c.rest}}</td>
+		    <td>{{c.status}}</td></td>
+		    <td>{{c.quantity}}</td>
+		    <td>{{c.food.price}}</td>
+		    <td>
+		   	<script type="text/javascript">
+			function click(link){
+				alert("Thank you for your upvote !")
+			}​​
+			</script>
+			<a id = "review_link" href="{% url 'review' pk=c.pk %}" onclick="click(this);">Add Review</a></td>
+		</tr>
+	{%endfor%}
+</table>
+
+
+{% endblock %}

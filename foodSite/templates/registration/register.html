@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}User Registration{% endblock %}
+{% block head %}User Registration{% endblock %}
+{% block content %}
+<div class = "image">
+
+    <a class="right" href="/">Login</a>
+    <form method="post" action=".">{% csrf_token %}
+	    <div id = "cregister">
+	    	<h3 class = "form"> Register</h3>
+	        <table border="0">
+	            {{ form.as_table }}
+	        </table>
+	        <br/>
+	        <input type="submit" value="Register" />
+	    </div>
+    </form>
+<br/>
+    <div id="spacefiller" style="padding-bottom: 200px;"></div>
+</div>    
+{% endblock %}
+

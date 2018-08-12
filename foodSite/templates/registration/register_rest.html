@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Restaurant Registration{% endblock %}
+{% block head %}Restaurant Registration{% endblock %}
+{% block content %}
+<div class = "image">
+
+    <a class="right" href="/">Login</a>
+    <form method="post" action=".">{% csrf_token %}
+        <div id = "rregister">
+	    	<h3 class = "form"> Register</h3>
+	        <table border="0">
+	            {{ form.as_table }}
+	        </table>
+	        <br/>
+	        <input type="submit" value="Register" />
+	    </div>
+    </form>
+<br/>
+</div>    
+{% endblock %}
